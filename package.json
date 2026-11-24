@@ -1,0 +1,25 @@
+{
+  "name": "axiom-motion-video-from-scratch",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio src/index.tsx",
+    "render:vertical": "remotion render src/index.tsx Axiom-From-Scratch-Vertical deliverables/axiom_by_rusan_fresh_vertical.mp4 --codec=h264 --audio-codec=aac",
+    "render:landscape": "remotion render src/index.tsx Axiom-From-Scratch-Landscape deliverables/axiom_by_rusan_fresh_landscape.mp4 --codec=h264 --audio-codec=aac",
+    "render": "npm run render:vertical && npm run render:landscape"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.526",
+    "@remotion/cli": "^4.0.526",
+    "@remotion/renderer": "^4.0.526",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.526"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

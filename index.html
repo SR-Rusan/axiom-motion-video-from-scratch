@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>✦ AXIOM by Rusan — Fresh Motion Film</title>
+    <style>
+      @font-face { font-family: AXIOM; src: url("public/Inter-Variable.woff2") format("woff2"); font-style: normal; font-weight: 100 900; }
+      @font-face { font-family: AXIOM Serif; src: url("public/InstrumentSerif-Italic.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+      :root {
+        --paper: #f8fafc;
+        --ink: #101827;
+        --muted: #64748b;
+        --line: rgba(15, 23, 42, .12);
+        --indigo: #635bff;
+        --emerald: #10b981;
+        --red: #e05252;
+        --shadow: 0 24px 80px rgba(15, 23, 42, .11);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: AXIOM, Inter, Arial, sans-serif;
+        background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px), radial-gradient(circle at 50% 0%, rgba(99, 91, 255, .11), transparent 35%);
+        background-size: 42px 42px, 42px 42px, 100% 100%;
+      }
+      a { color: inherit; }
+      .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; }
+      nav { height: 84px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+      nav strong { color: var(--ink); font-size: 14px; }
+      .hero { padding: 96px 0 68px; max-width: 950px; }
+      .eyebrow { color: var(--indigo); font-size: 12px; font-weight: 800; }
+      h1 { margin: 24px 0 0; font-size: clamp(58px, 10vw, 142px); line-height: .84; letter-spacing: -.09em; font-weight: 900; }
+      h1 em { color: var(--indigo); font-family: "AXIOM Serif", Georgia, serif; font-weight: 400; letter-spacing: -.055em; }
+      .hero p { max-width: 650px; margin: 34px 0 0; font-size: 18px; line-height: 1.55; color: var(--muted); }
+      .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+      .tag { border: 1px solid rgba(99, 91, 255, .35); padding: 10px 13px; color: var(--indigo); font-size: 11px; }
+      .player-section { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr); gap: 28px; align-items: start; }
+      .player-frame { padding: 12px; background: rgba(255,255,255,.74); border: 1px solid var(--line); box-shadow: var(--shadow); }
+      .player-frame video { width: 100%; display: block; max-height: 720px; object-fit: contain; background: #e9edf4; }
+      .landscape .player-frame video { max-height: none; aspect-ratio: 16 / 9; }
+      .player-controls { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 14px; }
+      button, .download { cursor: pointer; border: 0; background: var(--ink); color: white; font: inherit; padding: 12px 15px; text-decoration: none; }
+      button.secondary, .download.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+      button:hover, .download:hover { transform: translateY(-1px); }
+      .format-toggle { display: flex; gap: 7px; }
+      .format-toggle button.active { background: var(--indigo); }
+      .side-panel { border-top: 2px solid var(--indigo); padding-top: 17px; }
+      .side-panel h2 { font-size: 20px; letter-spacing: -.04em; margin: 0; }
+      .side-panel p { margin: 12px 0 24px; color: var(--muted); line-height: 1.55; }
+      .spec { display: grid; grid-template-columns: 1fr auto; gap: 11px; padding: 13px 0; border-top: 1px solid var(--line); font-size: 13px; }
+      .spec span:last-child { color: var(--muted); text-align: right; }
+      .status { color: var(--emerald) !important; }
+      .section-heading { margin: 110px 0 26px; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+      .section-heading h2 { margin: 0; font-size: clamp(30px, 5vw, 58px); letter-spacing: -.07em; line-height: .9; }
+      .section-heading p { margin: 0; color: var(--muted); max-width: 420px; line-height: 1.5; }
+      .act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .act-card { background: rgba(255,255,255,.72); border: 1px solid var(--line); overflow: hidden; }
+      .act-card img { width: 100%; display: block; aspect-ratio: 9 / 16; object-fit: cover; background: #eef1f7; }
+      .act-body { padding: 16px; }
+      .act-body .mono { font-size: 10px; color: var(--indigo); }
+      .act-body h3 { margin: 9px 0 7px; font-size: 18px; letter-spacing: -.04em; }
+      .act-body p { margin: 0; color: var(--muted); line-height: 1.45; font-size: 14px; }
+      .manifesto { margin: 110px 0 80px; padding: 35px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+      .manifesto h2 { margin: 0; font-size: clamp(30px, 4vw, 52px); line-height: .92; letter-spacing: -.07em; }
+      .manifesto h2 em { color: var(--indigo); font-family: "AXIOM Serif", Georgia, serif; font-weight: 400; }
+      .manifesto p { color: var(--muted); line-height: 1.6; margin: 0; }
+      footer { padding: 26px 0 45px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 11px; }
+      @media (max-width: 820px) {
+        .shell { width: min(100% - 28px, 620px); }
+        nav { height: 68px; }
+        .hero { padding: 68px 0 52px; }
+        .player-section, .manifesto { grid-template-columns: 1fr; }
+        .act-grid { grid-template-columns: repeat(2, 1fr); }
+        .section-heading { display: block; }
+        .section-heading p { margin-top: 14px; }
+      }
+      @media (max-width: 510px) {
+        h1 { font-size: 17vw; }
+        .act-grid { grid-template-columns: 1fr; }
+        .act-card img { aspect-ratio: 9 / 14; }
+        footer { display: block; line-height: 1.8; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <nav>
+        <strong>✦ AXIOM / RUSAN</strong>
+        <span class="mono">BUILD 01 // FRESH FROM SCRATCH</span>
+        <span class="mono">● SYSTEMS OPERATIONAL</span>
+      </nav>
+
+      <header class="hero">
+        <div class="eyebrow mono">FOUNDER-LED AI AUTOMATION &amp; DIGITAL PRESENCE ADVISORY</div>
+        <h1>One founder.<br /><em>All connected.</em></h1>
+        <p>A fresh 15-second motion film for Rusan: operational drag gives way to connected systems, then resolves into the four ways AXIOM compounds a business.</p>
+        <div class="hero-meta">
+          <span class="tag mono">15 SEC / 450 FRAMES</span>
+          <span class="tag mono">VERTICAL + LANDSCAPE</span>
+          <span class="tag mono">NEW SOUNDTRACK</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="player-section" id="film">
+          <div>
+            <div class="player-frame">
+              <video id="film-player" controls playsinline preload="metadata" src="deliverables/axiom_by_rusan_fresh_vertical.mp4"></video>
+              <div class="player-controls">
+                <div class="format-toggle">
+                  <button class="active" data-format="vertical">9:16</button>
+                  <button class="secondary" data-format="landscape">16:9</button>
+                </div>
+                <a id="download" class="download" href="deliverables/axiom_by_rusan_fresh_vertical.mp4" download>Download master →</a>
+              </div>
+            </div>
+          </div>
+          <aside class="side-panel">
+            <h2>Designed as a system.</h2>
+            <p>Each beat introduces one piece of the operating layer: identity, friction, architecture, telemetry, service stack, and the AXIOM lock-up.</p>
+            <div class="spec"><span class="mono">Master</span><span id="format-label">1080 × 1920 / 9:16</span></div>
+            <div class="spec"><span class="mono">Picture</span><span>H.264 / 30 FPS</span></div>
+            <div class="spec"><span class="mono">Sound</span><span>Fresh mono WAV → AAC mix</span></div>
+            <div class="spec"><span class="mono">Length</span><span>15.000 seconds</span></div>
+            <div class="spec"><span class="mono">Status</span><span class="status">● READY TO SHIP</span></div>
+          </aside>
+        </section>
+
+        <section id="acts">
+          <div class="section-heading">
+            <h2>The six-beat<br /><em style="font-family:'AXIOM Serif', Georgia, serif; color:var(--indigo); font-weight:400;">operating story.</em></h2>
+            <p class="mono">Frame-by-frame gallery / fresh final master / no legacy assets</p>
+          </div>
+          <div class="act-grid">
+            <article class="act-card"><img src="deliverables/fresh_keyframe_01_rusan.png" alt="Rusan hook keyframe" /><div class="act-body"><div class="mono">00.8 SEC // 025</div><h3>Start with Rusan.</h3><p>A founder-led point of view replaces the urge to collect more tools.</p></div></article>
+            <article class="act-card"><img src="deliverables/fresh_keyframe_02_automation.png" alt="Operational drag keyframe" /><div class="act-body"><div class="mono">03.2 SEC // 095</div><h3>Expose the drag.</h3><p>Timeouts, silent failures, and manual triage make fragmentation tangible.</p></div></article>
+            <article class="act-card"><img src="deliverables/fresh_keyframe_03_systems.png" alt="Connected systems keyframe" /><div class="act-body"><div class="mono">06.0 SEC // 180</div><h3>Collapse the chaos.</h3><p>Four verified lanes resolve into a connected operating architecture.</p></div></article>
+            <article class="act-card"><img src="deliverables/fresh_keyframe_04_dashboard.png" alt="Axiom Core dashboard keyframe" /><div class="act-body"><div class="mono">08.8 SEC // 265</div><h3>Show the living core.</h3><p>Telemetry, throughput, and CRM dispatch turn the promise into proof.</p></div></article>
+            <article class="act-card"><img src="deliverables/fresh_keyframe_05_services.png" alt="AXIOM service stack keyframe" /><div class="act-body"><div class="mono">11.7 SEC // 350</div><h3>Make the stack legible.</h3><p>AI automations, websites, CRM builds, and direct consultancy.</p></div></article>
+            <article class="act-card"><img src="deliverables/fresh_keyframe_06_reveal.png" alt="AXIOM by Rusan reveal keyframe" /><div class="act-body"><div class="mono">14.2 SEC // 425</div><h3>Leave the system on.</h3><p>AXIOM by Rusan — AI Automation &amp; Digital Presence Advisory.</p></div></article>
+          </div>
+        </section>
+
+        <section class="manifesto">
+          <h2>Automate the work.<br /><em>Amplify the business.</em></h2>
+          <p>Rusan designs and connects the layer behind ambitious businesses: practical AI automations, high-converting digital presence, real-time CRM systems, and direct architecture without handoffs.</p>
+        </section>
+      </main>
+
+      <footer>
+        <span class="mono">AXIOM BY RUSAN / FRESH MOTION FILM</span>
+        <span class="mono">BUILT FROM SCRATCH / OCT 2026</span>
+      </footer>
+    </div>
+    <script>
+      const player = document.getElementById('film-player');
+      const download = document.getElementById('download');
+      const formatLabel = document.getElementById('format-label');
+      const buttons = document.querySelectorAll('[data-format]');
+      const sources = {
+        vertical: { src: 'deliverables/axiom_by_rusan_fresh_vertical.mp4', label: '1080 × 1920 / 9:16' },
+        landscape: { src: 'deliverables/axiom_by_rusan_fresh_landscape.mp4', label: '1920 × 1080 / 16:9' },
+      };
+      buttons.forEach((button) => button.addEventListener('click', () => {
+        const format = button.dataset.format;
+        const current = player.currentTime;
+        const playing = !player.paused;
+        player.src = sources[format].src;
+        player.currentTime = current;
+        if (playing) player.play();
+        download.href = sources[format].src;
+        formatLabel.textContent = sources[format].label;
+        buttons.forEach((item) => item.classList.toggle('active', item === button));
+        buttons.forEach((item) => item.classList.toggle('secondary', item !== button));
+      }));
+    </script>
+  </body>
+</html>
